@@ -24,4 +24,8 @@ export class CategoriesRepository {
     this.categories.push(category);
     return category;
   }
+
+  list(): Category[] {
+    return this.categories;
+  }
 }
