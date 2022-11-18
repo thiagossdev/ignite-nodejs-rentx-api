@@ -15,7 +15,11 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["prettier", "@typescript-eslint", "eslint-plugin-import-helpers"],
+  "plugins": [
+    "prettier",
+    "@typescript-eslint",
+    "eslint-plugin-import-helpers"
+  ],
   "rules": {
     "camelcase": "off",
     "import/no-unresolved": "error",
@@ -23,7 +27,9 @@
       "error",
       {
         "selector": "interface",
-        "format": ["PascalCase"],
+        "format": [
+          "PascalCase"
+        ],
         "custom": {
           "regex": "^I[A-Z]",
           "match": true
@@ -48,19 +54,33 @@
       "warn",
       {
         "newlinesBetween": "always",
-        "groups": ["module", "/^@shared/", ["parent", "sibling", "index"]],
-        "alphabetize": { "order": "asc", "ignoreCase": true }
+        "groups": [
+          "module",
+          "/^@shared/",
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
       }
     ],
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/*.spec.js"] }
+      {
+        "devDependencies": [
+          "**/*.spec.js"
+        ]
+      }
     ],
     "prettier/prettier": [
       "error",
       {
-        "singleQuote": true,
-        "parser": "flow"
+        "singleQuote": true
       }
     ]
   },
