@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
-    "debug": "tsx watch --inspect src/server.ts"
+    "dev": "tsx watch --clear-screen=false src/server.ts",
+    "debug": "tsx watch --inspect --clear-screen=false src/server.ts"
   },
   "repository": {
     "type": "git",
