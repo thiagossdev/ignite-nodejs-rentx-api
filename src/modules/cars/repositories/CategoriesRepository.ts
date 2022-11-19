@@ -5,7 +5,19 @@ import {
 } from './ICategoriesRepository';
 
 export class CategoriesRepository implements ICategoriesRepository {
-  protected entities: Category[] = [];
+  protected entities: Category[];
+  protected static INSTANCE: CategoriesRepository;
+
+  private constructor() {
+    this.entities = [];
+  }
+
+  public static getInstance(): CategoriesRepository {
+    if (!CategoriesRepository.INSTANCE) {
+      CategoriesRepository.INSTANCE = new CategoriesRepository();
+    }
+    return CategoriesRepository.INSTANCE;
+  }
 
   create({ name, description }: ICreateCategoryDTO) {
     const entity = new Category();
