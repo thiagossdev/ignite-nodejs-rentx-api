@@ -5,11 +5,11 @@ import { ImportCategoriesUseCase } from './ImportCategoriesUseCase';
 export class ImportCategoriesController {
   constructor(protected useCase: ImportCategoriesUseCase) {}
 
-  handle(request: Request, response: Response): Response {
+  async handle(request: Request, response: Response): Promise<Response> {
     const { file } = request;
 
-    this.useCase.execute(file);
+    const count = await this.useCase.execute(file);
 
-    return response.status(201).json(file);
+    return response.status(count > 0 ? 201 : 400).json({ count });
   }
 }

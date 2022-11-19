@@ -32,10 +32,10 @@ export class ImportCategoriesUseCase {
     });
   }
 
-  async execute(file: Express.Multer.File): Promise<void> {
+  async execute(file: Express.Multer.File): Promise<number> {
     const categories = await this.parse(file);
 
-    const createds = categories.map((category) => {
+    const result = categories.map((category) => {
       const existsCategory = this.repository.findByName(category.name);
       if (!existsCategory) {
         this.repository.create(category);
@@ -43,6 +43,7 @@ export class ImportCategoriesUseCase {
       return typeof existsCategory === 'undefined';
     });
 
-    console.log(createds);
+    const count = result.reduce((acc, created) => acc + (created ? 1 : 0), 0);
+    return count;
   }
 }
