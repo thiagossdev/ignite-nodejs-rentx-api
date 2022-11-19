@@ -5,30 +5,26 @@ import {
 } from './ICategoriesRepository';
 
 export class CategoriesRepository implements ICategoriesRepository {
-  protected categories: Category[];
-
-  constructor() {
-    this.categories = [];
-  }
+  protected entities: Category[] = [];
 
   create({ name, description }: ICreateCategoryDTO) {
-    const category = new Category();
+    const entity = new Category();
 
-    Object.assign(category, {
+    Object.assign(entity, {
       name,
       description,
       created_at: new Date(),
     });
 
-    this.categories.push(category);
-    return category;
+    this.entities.push(entity);
+    return entity;
   }
 
   list(): Category[] {
-    return this.categories;
+    return this.entities;
   }
 
   findByName(name: string): Category {
-    return this.categories.find((category) => category.name === name);
+    return this.entities.find((entity) => entity.name === name);
   }
 }
