@@ -27,8 +27,14 @@ export class ImportCategoriesUseCase {
             description,
           });
         })
-        .on('end', () => resolve(categories))
-        .on('error', (err) => reject(err));
+        .on('end', () => {
+          fs.promises.unlink(file.path);
+          resolve(categories);
+        })
+        .on('error', (err) => {
+          fs.promises.unlink(file.path);
+          reject(err);
+        });
     });
   }
 
