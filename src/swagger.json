@@ -1,11 +1,11 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "RentalX Documentation",
-    "description": "This is an API RentalX project",
+    "title": "RentX Documentation",
+    "description": "This is an API RentX project",
     "version": "1.0.0",
     "contact": {
-      "name": "RentalX Support",
+      "name": "RentX Support",
       "email": "ssthiago.dev@gmail.com"
     }
   },

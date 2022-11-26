@@ -1,5 +1,5 @@
 {
-  "name": "rentalx-api",
+  "name": "rentx-api",
   "version": "1.0.0",
   "description": "",
   "main": "src/server.ts",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thiagossdev/ignite-nodejs-rentalx-api.git"
+    "url": "git+https://github.com/thiagossdev/ignite-nodejs-rentx-api.git"
   },
   "keywords": [],
   "author": "ssthiago.dev@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thiagossdev/ignite-nodejs-rentalx-api/issues"
+    "url": "https://github.com/thiagossdev/ignite-nodejs-rentx-api/issues"
   },
-  "homepage": "https://github.com/thiagossdev/ignite-nodejs-rentalx-api#readme",
+  "homepage": "https://github.com/thiagossdev/ignite-nodejs-rentx-api#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "csv-parse": "^5.3.2",
