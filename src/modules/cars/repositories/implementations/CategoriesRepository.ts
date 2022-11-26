@@ -1,3 +1,6 @@
+import { Repository } from 'typeorm';
+
+import { AppDataSource } from '../../../../database/data-source';
 import { Category } from '../../entities/Category';
 import {
   ICategoriesRepository,
@@ -5,38 +8,26 @@ import {
 } from '../ICategoriesRepository';
 
 export class CategoriesRepository implements ICategoriesRepository {
-  private static INSTANCE: CategoriesRepository;
-  protected entities: Category[];
+  protected repository: Repository<Category>;
 
-  private constructor() {
-    this.entities = [];
+  constructor() {
+    this.repository = AppDataSource.getRepository(Category);
   }
 
-  public static getInstance(): CategoriesRepository {
-    if (!CategoriesRepository.INSTANCE) {
-      CategoriesRepository.INSTANCE = new CategoriesRepository();
-    }
-    return CategoriesRepository.INSTANCE;
-  }
-
-  create({ name, description }: ICreateCategoryDTO) {
-    const entity = new Category();
-
-    Object.assign(entity, {
+  async create({ name, description }: ICreateCategoryDTO): Promise<void> {
+    const entity = this.repository.create({
       name,
       description,
-      created_at: new Date(),
     });
 
-    this.entities.push(entity);
-    return entity;
+    await this.repository.save(entity);
   }
 
-  list(): Category[] {
-    return this.entities;
+  async list(): Promise<Category[]> {
+    return this.repository.find();
   }
 
-  findByName(name: string): Category {
-    return this.entities.find((entity) => entity.name === name);
+  async findByName(name: string): Promise<Category> {
+    return this.repository.findOneBy({ name });
   }
 }
