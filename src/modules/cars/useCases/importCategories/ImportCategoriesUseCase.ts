@@ -41,15 +41,18 @@ export class ImportCategoriesUseCase {
   async execute(file: Express.Multer.File): Promise<number> {
     const categories = await this.parse(file);
 
-    const result = categories.map((category) => {
-      const existsCategory = this.repository.findByName(category.name);
+    const result = categories.map(async (category) => {
+      const existsCategory = await this.repository.findByName(category.name);
       if (!existsCategory) {
-        this.repository.create(category);
+        await this.repository.create(category);
       }
-      return typeof existsCategory === 'undefined';
+      return existsCategory === null;
     });
 
-    const count = result.reduce((acc, created) => acc + (created ? 1 : 0), 0);
+    const count = (await Promise.all(result)).reduce(
+      (acc, created) => acc + (created ? 1 : 0),
+      0
+    );
     return count;
   }
 }
