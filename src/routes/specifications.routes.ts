@@ -5,10 +5,6 @@ import { listSpecificationsController } from '../modules/cars/useCases/listSpeci
 
 export const specificationsRoutes = Router();
 
-specificationsRoutes.post('/', (request, response) => {
-  return createSpecificationController.handle(request, response);
-});
+specificationsRoutes.post('/', createSpecificationController.handle);
 
-specificationsRoutes.get('/', (request, response) => {
-  return listSpecificationsController.handle(request, response);
-});
+specificationsRoutes.get('/', listSpecificationsController.handle);
