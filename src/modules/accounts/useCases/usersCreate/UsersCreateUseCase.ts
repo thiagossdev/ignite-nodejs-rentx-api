@@ -14,10 +14,9 @@ export class UsersCreateUseCase {
 
   async execute({
     name,
-    username,
     email,
-    driver_license,
     password,
+    driver_license,
   }: IUserCreateDTO): Promise<void> {
     const userAlreadyExists = await this.repository.findByName(name);
 
@@ -27,10 +26,9 @@ export class UsersCreateUseCase {
 
     await this.repository.create({
       name,
-      username,
       email,
-      driver_license,
       password,
+      driver_license,
     });
   }
 }

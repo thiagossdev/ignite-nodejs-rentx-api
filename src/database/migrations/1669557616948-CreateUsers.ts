@@ -21,11 +21,11 @@ export class CreateUsers1669557616948 implements MigrationInterface {
             isUnique: true,
           },
           {
-            name: 'password',
+            name: 'email',
             type: 'varchar',
           },
           {
-            name: 'email',
+            name: 'password',
             type: 'varchar',
           },
           {
@@ -40,6 +40,7 @@ export class CreateUsers1669557616948 implements MigrationInterface {
           {
             name: 'avatar',
             type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'created_at',
