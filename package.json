@@ -5,7 +5,9 @@
   "main": "src/server.ts",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only --inspect --ignore-watch node_modules -- src/server.ts",
-    "typeorm": "typeorm-ts-node-esm"
+    "typeorm": "typeorm-ts-node-esm",
+    "typeorm:migration:run": "typeorm-ts-node-esm migration:run -d ./src/database/data-source.ts",
+    "typeorm:migration:revert": "typeorm-ts-node-esm migration:revert -d ./src/database/data-source.ts"
   },
   "repository": {
     "type": "git",
