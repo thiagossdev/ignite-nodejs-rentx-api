@@ -4,7 +4,7 @@ import { Category } from '../../entities/Category';
 import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
 
 @injectable()
-export class ListCategoriesUseCase {
+export class CategoriesListUseCase {
   constructor(
     @inject('CategoriesRepository')
     protected repository: ICategoriesRepository

@@ -1,5 +1,5 @@
-import { ImportCategoriesController } from './ImportCategoriesController';
+import { CategoriesImportController } from './CategoriesImportController';
 
-export default (): ImportCategoriesController => {
-  return new ImportCategoriesController();
+export default (): CategoriesImportController => {
+  return new CategoriesImportController();
 };

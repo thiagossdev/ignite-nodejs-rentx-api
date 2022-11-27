@@ -1,5 +1,5 @@
-import { CreateSpecificationController } from './CreateSpecificationController';
+import { SpecificationsCreateController } from './SpecificationsCreateController';
 
-export default (): CreateSpecificationController => {
-  return new CreateSpecificationController();
+export default (): SpecificationsCreateController => {
+  return new SpecificationsCreateController();
 };

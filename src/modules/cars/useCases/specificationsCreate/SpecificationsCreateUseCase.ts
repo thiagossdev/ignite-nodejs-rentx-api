@@ -8,7 +8,7 @@ interface IRequest {
 }
 
 @injectable()
-export class CreateSpecificationUseCase {
+export class SpecificationsCreateUseCase {
   constructor(
     @inject('SpecificationsRepository')
     protected repository: ISpecificationsRepository

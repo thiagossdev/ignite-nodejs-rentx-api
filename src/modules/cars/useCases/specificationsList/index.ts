@@ -1,5 +1,5 @@
-import { ListSpecificationsController } from './ListSpecificationsController';
+import { SpecificationsListController } from './SpecificationsListController';
 
-export default (): ListSpecificationsController => {
-  return new ListSpecificationsController();
+export default (): SpecificationsListController => {
+  return new SpecificationsListController();
 };

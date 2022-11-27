@@ -4,7 +4,7 @@ import { Specification } from '../../entities/Specification';
 import { ISpecificationsRepository } from '../../repositories/ISpecificationsRepository';
 
 @injectable()
-export class ListSpecificationsUseCase {
+export class SpecificationsListUseCase {
   constructor(
     @inject('SpecificationsRepository')
     protected repository: ISpecificationsRepository

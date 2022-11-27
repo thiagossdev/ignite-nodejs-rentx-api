@@ -8,7 +8,7 @@ interface IRequest {
 }
 
 @injectable()
-export class CreateCategoryUseCase {
+export class CategoriesCreateUseCase {
   constructor(
     @inject('CategoriesRepository')
     protected repository: ICategoriesRepository
