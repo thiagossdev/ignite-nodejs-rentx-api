@@ -13,17 +13,15 @@ export class UsersRepository implements IUsersRepository {
 
   async create({
     name,
-    username,
     email,
-    driver_license,
     password,
+    driver_license,
   }: IUserCreateDTO): Promise<void> {
     const entity = this.repository.create({
       name,
-      username,
       email,
-      driver_license,
       password,
+      driver_license,
     });
 
     await this.repository.save(entity);

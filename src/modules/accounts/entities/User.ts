@@ -10,13 +10,10 @@ export class User {
   name: string;
 
   @Column()
-  username: string;
+  email: string;
 
   @Column()
   password: string;
-
-  @Column()
-  email: string;
 
   @Column()
   driver_license: string;
