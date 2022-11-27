@@ -1,11 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
-import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
-
-interface IRequest {
-  name: string;
-  description: string;
-}
+import {
+  ICategoriesRepository,
+  ICategoryCreateDTO,
+} from '../../repositories/ICategoriesRepository';
 
 @injectable()
 export class CategoriesCreateUseCase {
@@ -14,7 +12,7 @@ export class CategoriesCreateUseCase {
     protected repository: ICategoriesRepository
   ) {}
 
-  async execute({ name, description }: IRequest): Promise<void> {
+  async execute({ name, description }: ICategoryCreateDTO): Promise<void> {
     const categoryAlreadyExists = await this.repository.findByName(name);
 
     if (categoryAlreadyExists) {

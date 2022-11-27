@@ -4,7 +4,7 @@ import { AppDataSource } from '../../../../database/data-source';
 import { Specification } from '../../entities/Specification';
 import {
   ISpecificationsRepository,
-  ICreateSpecificationDTO,
+  ISpecificationCreateDTO,
 } from '../ISpecificationsRepository';
 
 export class SpecificationsRepository implements ISpecificationsRepository {
@@ -14,7 +14,7 @@ export class SpecificationsRepository implements ISpecificationsRepository {
     this.repository = AppDataSource.getRepository(Specification);
   }
 
-  async create({ name, description }: ICreateSpecificationDTO): Promise<void> {
+  async create({ name, description }: ISpecificationCreateDTO): Promise<void> {
     const entity = this.repository.create({
       name,
       description,

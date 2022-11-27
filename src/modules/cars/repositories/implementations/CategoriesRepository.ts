@@ -4,7 +4,7 @@ import { AppDataSource } from '../../../../database/data-source';
 import { Category } from '../../entities/Category';
 import {
   ICategoriesRepository,
-  ICreateCategoryDTO,
+  ICategoryCreateDTO,
 } from '../ICategoriesRepository';
 
 export class CategoriesRepository implements ICategoriesRepository {
@@ -14,7 +14,7 @@ export class CategoriesRepository implements ICategoriesRepository {
     this.repository = AppDataSource.getRepository(Category);
   }
 
-  async create({ name, description }: ICreateCategoryDTO): Promise<void> {
+  async create({ name, description }: ICategoryCreateDTO): Promise<void> {
     const entity = this.repository.create({
       name,
       description,
