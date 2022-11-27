@@ -8,7 +8,7 @@ export const AppDataSource = new DataSource({
   username: 'docker',
   password: 'ignite',
   database: 'rentx',
-  synchronize: true,
+  synchronize: false,
   logging: true,
   entities: ['./src/modules/cars/entities/*.ts'],
   subscribers: [],
